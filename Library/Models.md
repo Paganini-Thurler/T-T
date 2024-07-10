@@ -47,6 +47,14 @@ class MyModelName(models.Model):
 - TextField: Use for long strings or texts.
 
 ## Common field types arguments
+- help_text: Set a label for HTML forms.
+- verbose_name: Set a human readable name for the filed, django infers when it is not provided.
+- default: Set a default value for the field.
+- null : Allows or prohibits a field to be null, null=False/True.
+- blank: Allows or prohibits a field to be blank.
+- choices: Creates a group of possible inputs for the field.
+- unique: enforces that the field will be unique.
+- primary_key: Set the field as a primary key.
 
 
 # How to itereate on the collection
