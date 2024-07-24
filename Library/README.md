@@ -68,6 +68,14 @@ python3 manage.py migrate
 python3 manage.py runserver
 ```server
 
+# admin.py
 
+For educational purposes only I create a user called paganini with the password DjangoDev, it is critical to think about security, this is not a good pratice, repositories can be a great source for private passwords.
+
+Nonetheless views must be registered on the admin.py. To create an user go to the manage.py folder and execute the following command.
+
+```
+python3 manage.py createsuperuser
+``` 
 
 
