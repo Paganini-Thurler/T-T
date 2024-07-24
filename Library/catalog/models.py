@@ -24,6 +24,7 @@ class Author(models.Model):
         """Defines how the table will be ordered"""
         ordering = ['last_name', 'first_name']
 
+
 class Book(models.Model):
     """A model that represents a book"""
     
@@ -36,6 +37,7 @@ class Book(models.Model):
     summary = models.TextField(max_length=1000)
     title = models.CharField(max_length=200)
     language = models.ForeignKey('Language', on_delete=models.SET_NULL, null=True)
+
     
     def __str__(self):
         """ A method that will return a string model's representation"""
@@ -44,7 +46,7 @@ class Book(models.Model):
     def get_absolute_url(self):
         """Returns a url to access a Book instance."""
         return reverse('book-detail', args=[str(self.id)])
-
+    
 
 class BookInstance(models.Model):
     

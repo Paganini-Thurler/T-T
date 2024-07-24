@@ -78,4 +78,4 @@ Nonetheless views must be registered on the admin.py. To create an user go to th
 python3 manage.py createsuperuser
 ``` 
 
-
+After a superuser is created is possible to use the djano admin site on http://127.0.0.1:8000/admin . Django's admin site is useful to test the models. It's important that the models are registed beforehand on (/django-locallibrary-tutorial/catalog/admin.py)
