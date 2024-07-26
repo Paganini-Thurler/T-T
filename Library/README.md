@@ -79,3 +79,5 @@ python3 manage.py createsuperuser
 ``` 
 
 After a superuser is created is possible to use the djano admin site on http://127.0.0.1:8000/admin . Django's admin site is useful to test the models. It's important that the models are registed beforehand on (/django-locallibrary-tutorial/catalog/admin.py)
+
+The Django admin application can use your models to automatically build a site area that you can use to create, view, update, and delete records

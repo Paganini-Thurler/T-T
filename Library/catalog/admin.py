@@ -34,22 +34,35 @@ list_display = ["first_name", "last_name"]
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ('last_name', 'first_name', "birth_date", "death_date")
+    list_display = ('last_name', 'first_name', 'birth_date', 'death_date')
+    fields = ['first_name', 'last_name', ('birth_date', 'death_date')]
+
+class BooksInstanceInline(admin.TabularInline):
+    model = BookInstance
+
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    #diplay_genre is a function on the book model
-    list_display = ('title', 'author', 'display_genre')
-
     def display_genre(self):
-       return ', '.join(genre.name for genre in self.genre.all()[:3])
-    
-    display_genre.short_description = Genre
+        """Create a string for the Genre. This is required to display genre in Admin."""
+        return ', '.join(genre.name for genre in self.genre.all()[:3])
+    inlines = [BooksInstanceInline]
+    display_genre.short_description = 'Genre'
+
+
 
 @admin.register(BookInstance)
 class BookInstanceAdmin(admin.ModelAdmin):
-    pass
-
+     list_filter = ('status', 'reservation_date')
+     
+     fieldsets = (
+         (None,{
+            'fields' : ('book','imprint', 'id')
+         }),
+         ('Availability',{
+             'fields' : ('status', 'reservation_date')
+         }),
+     )
 
 # Unregister the previous models
 admin.site.unregister(Book)
