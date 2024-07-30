@@ -21,5 +21,5 @@ def index(request):
     }
     
     # Render
-    
+    return render(request, 'index.html', context=context)
     
